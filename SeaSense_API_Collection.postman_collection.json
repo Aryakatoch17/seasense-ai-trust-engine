@@ -1,0 +1,129 @@
+{
+  "info": {
+    "name": "SeaSense AI Trust Engine - SIH 2025",
+    "description": "Complete API collection for Smart India Hackathon 2025 demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. Citizen Report - High Severity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"reporter_name\": \"Priya Sharma\",\n  \"location\": {\n    \"latitude\": 13.0827,\n    \"longitude\": 80.2707,\n    \"address\": \"Marina Beach, Chennai\"\n  },\n  \"hazard_type\": \"unusual_current\",\n  \"description\": \"Very strong rip currents observed near the main swimming area. I saw two people get pulled out and needed rescue. Water is extremely choppy and dangerous today.\",\n  \"severity\": \"high\",\n  \"timestamp\": \"2025-09-14T14:30:00\",\n  \"contact_info\": \"priya.sharma@email.com\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/reports/citizen",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "reports", "citizen"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. Citizen Report - Medium Severity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"reporter_name\": \"Rajesh Kumar\",\n  \"location\": {\n    \"latitude\": 15.2993,\n    \"longitude\": 74.1240,\n    \"address\": \"Goa Beach, Calangute\"\n  },\n  \"hazard_type\": \"high_waves\",\n  \"description\": \"Waves are higher than usual today, around 6-8 feet. Some swimmers are struggling. Weather seems to be getting worse.\",\n  \"severity\": \"medium\",\n  \"timestamp\": \"2025-09-14T15:45:00\",\n  \"contact_info\": \"rajesh.k@email.com\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/reports/citizen",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "reports", "citizen"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. Social Media - Coast Guard Warning",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"🚨 URGENT: Cyclonic weather approaching Gujarat coast. All fishing vessels advised to return immediately. Rough seas expected with waves up to 12 feet. Stay away from beaches. #CycloneAlert #SafetyFirst\",\n  \"platform\": \"twitter\",\n  \"author_id\": \"IndiaCoastGuard\",\n  \"author_followers\": 500000,\n  \"author_verified\": true,\n  \"likes\": 1250,\n  \"shares\": 890,\n  \"comments\": 145,\n  \"location\": {\n    \"latitude\": 22.2587,\n    \"longitude\": 71.2084\n  },\n  \"hashtags\": [\"CycloneAlert\", \"SafetyFirst\"],\n  \"posted_at\": \"2025-09-14T08:30:00\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/social-media/ingest",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "social-media", "ingest"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. Social Media - Beach Authority",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"Beach Update: Strong undertow currents detected at Juhu Beach this morning. Red flags are up. Swimming not recommended until further notice. Lifeguards on high alert.\",\n  \"platform\": \"facebook\",\n  \"author_id\": \"MumbaiBeachSafety\",\n  \"author_followers\": 15000,\n  \"author_verified\": true,\n  \"likes\": 67,\n  \"shares\": 23,\n  \"comments\": 8,\n  \"location\": {\n    \"latitude\": 19.0990,\n    \"longitude\": 72.8258\n  },\n  \"hashtags\": [\"BeachSafety\", \"JuhuBeach\"],\n  \"posted_at\": \"2025-09-14T10:15:00\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/social-media/ingest",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "social-media", "ingest"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6. Trust Score Lookup",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/trust-scores/citizen_report_20250914143000",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "trust-scores", "citizen_report_20250914143000"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8005"
+    }
+  ]
+}

@@ -13,8 +13,8 @@ class Settings(BaseSettings):
     
     # API Configuration
     HOST: str = "0.0.0.0"
-    PORT: int = 8002
-    DEBUG: bool = True
+    PORT: int = int(os.getenv("PORT", 8005))
+    DEBUG: bool = os.getenv("DEBUG", "true").lower() == "true"
     
     # Security
     SECRET_KEY: str = "your-secret-key-change-in-production"
