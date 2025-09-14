@@ -212,8 +212,34 @@ async def get_nearby_reports(
         if radius_km <= 0 or radius_km > 1000:
             raise HTTPException(status_code=400, detail="Radius must be between 0 and 1000 km")
         
-        # In a real implementation, this would query a spatial database
-        nearby_reports = []  # Mock empty result
+        # Mock data for demonstration
+        mock_reports = [
+            {
+                "id": "RPT001",
+                "description": "High waves observed near Mumbai Beach",
+                "hazard_type": "high_waves",
+                "location": {"latitude": 19.076, "longitude": 72.877, "address": "Mumbai Beach, Maharashtra"},
+                "trust_score": 0.85,
+                "priority": "critical",
+                "timestamp": "2024-12-13T14:30:00Z",
+                "status": "verified",
+                "source": "citizen",
+                "reported_by": "Rajesh Kumar",
+                "verified_by": "Coast Guard Mumbai",
+            },
+            {
+                "id": "RPT002",
+                "description": "Oil spill detected near Goa coast",
+                "hazard_type": "pollution",
+                "location": {"latitude": 15.2993, "longitude": 74.124, "address": "Goa Coast, Goa"},
+                "trust_score": 0.72,
+                "priority": "high",
+                "timestamp": "2024-12-13T14:15:00Z",
+                "status": "pending",
+                "source": "social_media",
+                "reported_by": "Anonymous",
+            },
+        ]
         
         return APIResponse(
             success=True,
@@ -221,8 +247,8 @@ async def get_nearby_reports(
             data={
                 "location": {"latitude": latitude, "longitude": longitude},
                 "radius_km": radius_km,
-                "reports": nearby_reports,
-                "count": len(nearby_reports)
+                "reports": mock_reports,
+                "count": len(mock_reports)
             }
         )
     
