@@ -1,0 +1,13 @@
+{
+  "reporter_name": "Test User",
+  "location": {
+    "latitude": 19.0760,
+    "longitude": 72.8777,
+    "address": "Mumbai Beach, Maharashtra"
+  },
+  "hazard_type": "high_waves",
+  "description": "Testing dangerous wave conditions with detailed description for AI analysis. Multiple witnesses report extremely hazardous conditions.",
+  "severity": "high",
+  "timestamp": "2025-09-15T10:30:00",
+  "contact_info": "test@example.com"
+}
